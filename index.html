@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Columbus Farmers Market</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Top Bar -->
+  <div class="bg-black text-white text-center py-2 text-sm">
+    📞 Call Us: (609) 267-0400
+  </div>
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-green-500 to-yellow-400 text-white p-6 shadow-lg">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Columbus Farmers Market</h1>
+      <nav class="space-x-6 font-semibold">
+        <a href="#about">About</a>
+        <a href="#visit">Visit</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SLIDESHOW -->
+  <section class="relative text-white text-center h-[450px] overflow-hidden">
+
+    <!-- Slides -->
+    <div id="slides" class="h-full w-full">
+      <img class="slide absolute w-full h-full object-cover" src="https://i.imgur.com/LHnpCkE.jpg">
+      <img class="slide absolute w-full h-full object-cover" src="https://i.imgur.com/bmJwKfB.jpg">
+      <img class="slide absolute w-full h-full object-cover" src="https://i.imgur.com/VNz2jZM.jpg">
+    </div>
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">
+        Delaware Valley’s Largest Market
+      </h2>
+      <p class="text-lg">Open Year-Round • Since 1929</p>
+    </div>
+
+  </section>
+
+  <!-- NOTICE -->
+  <section class="bg-red-600 text-white text-center py-6 px-4">
+    <h2 class="text-2xl md:text-3xl font-bold">
+      ⚠️ NOTICE: LOUIS VUITTON & CBD PRODUCTS ARE NOT PERMITTED FOR SALE ⚠️
+    </h2>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-6xl mx-auto py-12 px-6 text-center">
+    <h2 class="text-3xl font-bold text-green-600 mb-4">About the Market</h2>
+    <p class="text-lg">
+      The Columbus Farmers Market is the Delaware Valley's largest and oldest year-round market,
+      featuring hundreds of vendors, indoor shops, and an Amish market.
+    </p>
+  </section>
+
+  <!-- Map -->
+  <section id="visit" class="bg-white py-12 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-yellow-500 mb-6">Find Us Here</h2>
+
+      <div class="rounded-2xl overflow-hidden shadow-lg">
+        <iframe 
+          src="https://www.google.com/maps?q=2919+US-206,+Columbus,+NJ+08022&output=embed"
+          width="100%" 
+          height="400" 
+          style="border:0;" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-green-500 to-yellow-400 text-white text-center p-6 mt-12">
+    <p>© 2026 Columbus Farmers Market</p>
+  </footer>
+
+  <!-- SLIDESHOW SCRIPT -->
+  <script>
+    let slides = document.querySelectorAll('.slide');
+    let index = 0;
+
+    function showSlide() {
+      slides.forEach((slide, i) => {
+        slide.style.opacity = (i === index) ? "1" : "0";
+      });
+      index = (index + 1) % slides.length;
+    }
+
+    slides.forEach(slide => {
+      slide.style.transition = "opacity 1s";
+      slide.style.opacity = "0";
+    });
+
+    showSlide();
+    setInterval(showSlide, 4000);
+  </script>
+
+</body>
+</html>
